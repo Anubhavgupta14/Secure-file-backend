@@ -13,10 +13,6 @@ const { notFoundHandler, errorHandler } = require('./middleware/errors');
 
 const app = express();
 
-// Ensure required directories exist (uploads no longer required for storage, but multer uses temp path if configured)
-const dataDir = path.resolve(__dirname, '..', 'data');
-if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
-
 // Security headers
 app.use(helmet());
 
