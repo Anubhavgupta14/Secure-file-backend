@@ -18,16 +18,6 @@ async function uploadFile(filePath, options = {}) {
   });
 }
 
-function buildDownloadUrl(publicId, originalFilename) {
-  const safeFilename = encodeURIComponent(originalFilename.replace(/[^a-zA-Z0-9\.\-_]/g, '_'));
-  
-  return cloudinary.url(publicId, {
-    resource_type: 'raw',
-    secure: true,
-    flags: `attachment:${safeFilename}`  // Correct syntax
-  });
-}
-
-module.exports = { configureCloudinary, uploadFile, buildDownloadUrl };
+module.exports = { configureCloudinary, uploadFile };
 
 

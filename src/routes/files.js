@@ -6,7 +6,7 @@ const { v4: uuidv4 } = require('uuid');
 
 const { getPool } = require('../utils/db');
 const { sha256File } = require('../utils/hash');
-const { uploadFile, buildDownloadUrl } = require('../utils/cloudinary');
+const { uploadFile } = require('../utils/cloudinary');
 
 const router = express.Router();
 
@@ -118,9 +118,7 @@ router.get('/:id/download', async (req, res, next) => {
       err.publicMessage = 'File not found';
       throw err;
     }
-    // Redirect to a Cloudinary attachment URL with the proper filename
-    const url = buildDownloadUrl(row.public_id, row.original_name);
-    return res.redirect(302, url);
+    return res.redirect(302, row.secure_url);
   } catch (err) {
     next(err);
   }
