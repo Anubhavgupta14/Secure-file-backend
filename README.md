@@ -10,7 +10,11 @@ Secure, deduplicated file upload API built with Express. Files are uploaded to C
 
 ---
 
-## Quick Start
+## Deployed Version
+
+### You can directly use this url https://secure-file-backend-rd92.onrender.com to this the functionality from postman or thunderclient.
+
+## Quick Start (Local Setup)
 
 ### Prerequisites
 - **Node.js**: v18+ (LTS recommended)
